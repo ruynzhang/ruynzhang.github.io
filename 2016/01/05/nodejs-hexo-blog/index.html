@@ -30,7 +30,7 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step14.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step15.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step16.png">
-<meta property="og:updated_time" content="2016-01-05T08:19:04.340Z">
+<meta property="og:updated_time" content="2016-01-05T08:20:45.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo建博客步骤">
 <meta name="twitter:description" content="####一. Hexo介绍
@@ -273,29 +273,29 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <p>6,hexo server  //启动hexo服务器<br><img src="/assets/blogImg/step7.png" alt="原图 by ruynzhang"></p>
 <p> 通过以上步骤后，就可以在本地访问了：<code>localhost:4000</code><br><img src="/assets/blogImg/step8.png" alt="原图 by ruynzhang"></p>
 <p>7, 设置SSH keys</p>
-<p>（1）在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。<br>        ls -al ~/.ssh</p>
+<p>（1）在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。<br>                ls -al ~/.ssh</p>
 <p>（2）如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：<br><img src="/assets/blogImg/step9.png" alt="原图 by ruynzhang"></p>
-<p>（3）输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：<br>        ssh-keygen -t rsa -C “angelen10@163.com”</p>
+<p>（3）输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：<br>                ssh-keygen -t rsa -C “angelen10@163.com”</p>
 <p><img src="/assets/blogImg/step10.png" alt="原图 by ruynzhang"></p>
 <p>（4）然后它会提示要你输入passphrase（如上图，我没有输入直接回车，如果你输入的话，要记得，到时候会用到）。之后，如果出现类似下图：<br><img src="/assets/blogImg/step11.png" alt="原图 by ruynzhang"></p>
 <p>（5）然后键入以下指令：ssh-agent -s<br><img src="/assets/blogImg/step12.png" alt="原图 by ruynzhang"></p>
 <p>（6）继续输入指令：ssh-add ~/.ssh/id_rsa</p>
 <p>（7）输入之后，在我这里是出错了，不知道你的有没有出错。<br><img src="/assets/blogImg/step13.png" alt="原图 by ruynzhang"></p>
-<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>        eval <code>ssh-agent -s</code><br>        ssh-add<br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
-<p>（9）到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：<br>        clip &lt; ~/.ssh/id_rsa.pub</p>
+<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>                eval <code>ssh-agent -s</code><br>                ssh-add<br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
+<p>（9）到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：<br>                clip &lt; ~/.ssh/id_rsa.pub</p>
 <p> （10）然后到Github里面，点击右上角的设置图标：<br><img src="/assets/blogImg/step15.png" alt="原图 by ruynzhang"></p>
 <p>在Settings sidebar 那里，点击 SSH keys ：</p>
 <p>点击 Add SSH key ：</p>
 <p>输入Title，作为这个key的描述吧</p>
 <p>然后这个Key就是刚刚拷贝的，你直接粘贴就好（也可以文本打开以下文件）：<br><img src="/assets/blogImg/step16.png" alt="原图 by ruynzhang"></p>
 <p>点击Add Key：</p>
-<p>输入你的Github密码即可完成SSH Key的添加。嗯，最后还是测试一下吧，键入以下命令：<br>        ssh -T git@github.com</p>
+<p>输入你的Github密码即可完成SSH Key的添加。嗯，最后还是测试一下吧，键入以下命令：<br>                ssh -T git@github.com</p>
 <p>你可能会看到有警告，没事，输入“yes”就好。</p>
 <p>####三，完成部署</p>
-<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>        deploy:<br>             type: git<br>             repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>        branch: master</p>
+<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>                deploy:<br>                     type: git<br>                     repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>                branch: master</p>
 <p>2，npm install hexo-deployer-git –save</p>
 <p>3 命令进行部署    hexo deploy</p>
-<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、<br>        hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br>        hexo generate //生成静态网页<br>        hexo deploy   //开始部署</p>
+<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、<br>                hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br>                hexo generate //生成静态网页<br>                hexo deploy   //开始部署</p>
 <p>####简写</p>
 <pre><code>hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章
 hexo p == hexo publish
