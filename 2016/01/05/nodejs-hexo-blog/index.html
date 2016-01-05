@@ -30,7 +30,7 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step14.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step15.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step16.png">
-<meta property="og:updated_time" content="2016-01-05T08:11:02.112Z">
+<meta property="og:updated_time" content="2016-01-05T08:13:56.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo建博客步骤">
 <meta name="twitter:description" content="####一. Hexo介绍
@@ -293,10 +293,10 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <p>输入你的Github密码即可完成SSH Key的添加。嗯，最后还是测试一下吧，键入以下命令：<br>    ssh -T git@github.com</p>
 <p>你可能会看到有警告，没事，输入“yes”就好。</p>
 <p>####三，完成部署</p>
-<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>            deploy:<br>                type: git<br>                repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>            branch: master</p>
+<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>                    deploy:<br>                        type: git<br>                        repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>                    branch: master</p>
 <p>2，      npm install hexo-deployer-git –save</p>
 <p>3 命令进行部署    hexo deploy</p>
-<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、<br>        1，hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br>        2,hexo generate //生成静态网页<br>        3，hexo deploy   //开始部署</p>
+<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、<br>                1，hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br>                2,hexo generate //生成静态网页<br>                3，hexo deploy   //开始部署</p>
 <p>####简写</p>
 <pre><code>hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章
 hexo p == hexo publish
