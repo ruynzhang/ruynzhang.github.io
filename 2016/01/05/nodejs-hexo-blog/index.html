@@ -30,7 +30,7 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step14.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step15.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step16.png">
-<meta property="og:updated_time" content="2016-01-05T07:08:42.195Z">
+<meta property="og:updated_time" content="2016-01-05T08:02:17.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo建博客步骤">
 <meta name="twitter:description" content="####一. Hexo介绍
@@ -265,17 +265,15 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。<br>发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….<br>Hexo的官方网站：<a href="http://hexo.io/" target="_blank" rel="external">http://hexo.io/</a> ，也是基于Github构建的网站。<br><a id="more"></a></p>
 <p>###二. Hexo安装</p>
 <p>系统环境：<br>win7 64bit<br>node v0.12.7<br>npm 2.11.3<br><img src="/assets/blogImg/step1.png" alt="原图 by ruynzhang"></p>
-<p>1，Hexo安装，要用全局安装，加-g参数:</p>
-<pre><code>npm install -g hexo     //全局安装hexo，在npm安装目录下
-</code></pre><p><img src="/assets/blogImg/step2.png" alt="原图 by ruynzhang"></p>
-<p>2，    hexo init  文件夹名 //新建初始化文件夹<br> <img src="/assets/blogImg/step3.png" alt="原图 by ruynzhang"></p>
+<p>1，Hexo安装，要用全局安装，加-g参数:<br>    npm install -g hexo     //全局安装hexo，在npm安装目录下<br><img src="/assets/blogImg/step2.png" alt="原图 by ruynzhang"></p>
+<p>2，   hexo init  文件夹名 //新建初始化文件夹<br> <img src="/assets/blogImg/step3.png" alt="原图 by ruynzhang"></p>
 <p>3，进到初始化文件目录下：cd 文件夹路径<br><img src="/assets/blogImg/step4.png" alt="原图 by ruynzhang"></p>
-<p>4,   安装依赖包: npm install<br><img src="/assets/blogImg/step5.png" alt="原图 by ruynzhang"></p>
-<p>5,  Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。<br>     npm install hexo-server –save   //安装hexo-server<br><img src="/assets/blogImg/step6.png" alt="原图 by ruynzhang"></p>
-<p>6, hexo server  //启动hexo服务器<br><img src="/assets/blogImg/step7.png" alt="原图 by ruynzhang"></p>
+<p>4,   安装依赖包:     npm install<br><img src="/assets/blogImg/step5.png" alt="原图 by ruynzhang"></p>
+<p>5,  Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。<br>    npm install hexo-server –save   //安装hexo-server<br><img src="/assets/blogImg/step6.png" alt="原图 by ruynzhang"></p>
+<p>6,   hexo server  //启动hexo服务器<br><img src="/assets/blogImg/step7.png" alt="原图 by ruynzhang"></p>
 <p> 通过以上步骤后，就可以在本地访问了：<code>localhost:4000</code><br><img src="/assets/blogImg/step8.png" alt="原图 by ruynzhang"></p>
 <p>7, 设置SSH keys</p>
-<p>（1）在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。<br>       ls -al ~/.ssh</p>
+<p>（1）在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。<br>    ls -al ~/.ssh</p>
 <p>（2）如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：<br><img src="/assets/blogImg/step9.png" alt="原图 by ruynzhang"></p>
 <p>（3）输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;angelen10@163.com&quot;
@@ -284,32 +282,28 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <p>（5）然后键入以下指令：ssh-agent -s<br><img src="/assets/blogImg/step12.png" alt="原图 by ruynzhang"></p>
 <p>（6）继续输入指令：ssh-add ~/.ssh/id_rsa</p>
 <p>（7）输入之后，在我这里是出错了，不知道你的有没有出错。<br><img src="/assets/blogImg/step13.png" alt="原图 by ruynzhang"></p>
-<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>eval <code>ssh-agent -s</code><br>ssh-add<br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
-<p>（9）到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：<br>clip &lt; ~/.ssh/id_rsa.pub</p>
+<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>    eval <code>ssh-agent -s</code><br>    ssh-add<br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
+<p>（9）到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：<br>    clip &lt; ~/.ssh/id_rsa.pub</p>
 <p> （10）然后到Github里面，点击右上角的设置图标：<br><img src="/assets/blogImg/step15.png" alt="原图 by ruynzhang"></p>
-<p>在Settings sidebar 那里，点击SSH keys ：</p>
+<p>在Settings sidebar 那里，点击 SSH keys ：</p>
 <p>点击 Add SSH key ：</p>
 <p>输入Title，作为这个key的描述吧</p>
 <p>然后这个Key就是刚刚拷贝的，你直接粘贴就好（也可以文本打开以下文件）：<br><img src="/assets/blogImg/step16.png" alt="原图 by ruynzhang"></p>
 <p>点击Add Key：</p>
-<p>输入你的Github密码即可完成SSH Key的添加。嗯，最后还是测试一下吧，键入以下命令：<br>ssh -T git@github.com</p>
+<p>输入你的Github密码即可完成SSH Key的添加。嗯，最后还是测试一下吧，键入以下命令：<br>    ssh -T git@github.com</p>
 <p>你可能会看到有警告，没事，输入“yes”就好。</p>
 <p>####三，完成部署</p>
-<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。</p>
-<p>   deploy:<br>     type: git<br>   repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>   branch: master</p>
-<p>2，npm install hexo-deployer-git –save</p>
-<p>3 命令进行部署 hexo deploy</p>
-<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、</p>
-<pre><code>1，hexo clean //清除缓存 网页正常情况下可以忽略此条命令
-
-
-2,hexo generate //生成静态网页
-
-
-3，hexo deploy   //开始部署
-</code></pre><p>####简写</p>
-<p>   hexo n “我的博客” == hexo new “我的博客” #新建文章<br>   hexo p == hexo publish<br>   hexo g == hexo generate #生成<br>   hexo s == hexo server #启动服务预览<br>   hexo d == hexo deploy #部署``</p>
-<p>End.</p>
+<p>1, 静态化处理: hexo generate<br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>    deploy:<br>        type: git<br>        repository: git@github.com:ruynzhang/ruynzhang.github.io.git<br>    branch: master</p>
+<p>2，  npm install hexo-deployer-git –save</p>
+<p>3 命令进行部署    hexo deploy</p>
+<p>####更新<br>每一次项目更新，都要经过以上3个步骤：、<br>    1，hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br>    2,hexo generate //生成静态网页<br>    3，hexo deploy   //开始部署</p>
+<p>####简写</p>
+<pre><code>hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章
+ hexo p == hexo publish
+hexo g == hexo generate #生成
+hexo s == hexo server #启动服务预览
+ hexo d == hexo deploy #部署``
+</code></pre><p>End.</p>
 
       
     </div>
