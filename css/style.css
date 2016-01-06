@@ -853,6 +853,9 @@ a {
 .body-wrap {
   margin-bottom: 80px;
 }
+.body-wrap .share_jia .jiathis_style {
+  margin-left: 40px;
+}
 .article {
   margin: 30px;
   position: relative;
