@@ -1194,6 +1194,11 @@ a {
 #article-nav #article-nav-older {
   float: right;
 }
+@media screen and (max-width: 800px) {
+  .body-wrap .share_jia .jiathis_style {
+    padding-left: 10px;
+  }
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
