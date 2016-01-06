@@ -1196,7 +1196,7 @@ a {
 }
 @media screen and (max-width: 800px) {
   .body-wrap .share_jia .jiathis_style {
-    padding-left: 10px;
+    margin-left: 10px;
   }
 }
 @-moz-keyframes cd-bounce-1 {
