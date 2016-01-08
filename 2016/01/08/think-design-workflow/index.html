@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/dpr2.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/dpr3.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/moblie-tb.png">
-<meta property="og:updated_time" content="2016-01-08T09:30:17.936Z">
+<meta property="og:updated_time" content="2016-01-08T09:31:44.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网易与淘宝的font-size思考前端设计稿与工作流">
 <meta name="twitter:description" content="#阅读目录
@@ -307,11 +307,8 @@
 @media screen and (min-width:800px){html{font-size:25px}}
 </pre>
 
-<p>在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，该类在不同分辨率下对应的实际宽度如下：</p>
-<pre>321px <= device-width="" <="375px，font-size:11px" ---="">  .item的width：34px376px <= device-width="" <="414px，font-size:12px" ---="">  .item的width：37.4px415px <= device-width="" <="639px，font-size:15px" ---="">  .item的width：40.8px640px <= device-width="" <="719px，font-size:20px" ---="">  .item的width：51px720px <= device-width="" <="749px，font-size:22.5px" ---="">  .item的width：76.5px750px <= device-width="" <="799px，font-size:23.5px" ---="">  .item的width：79.8999999px800px <= device-width="" ，font-size:25px="" ---="">  .item的width：85px
- </=></=></=></=></=></=></=></pre>
-
-<p>  以上代码乍看没啥问题，响应式设计不就应该是这么干的吗？但是从工作量和复杂度方面来考虑，它有以下几个不足：<br>  （1）.item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。<br>  （2）以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦<br>  （3）设计稿都是以分辨率来标明尺寸的，前端在根据设计稿里各个元素的像素尺寸转换为rem时，该以哪个font-size为准呢？这需要去写才能知道。<br>  正是因为以上提到的一些不足，我觉得这种适配方式不是特别好，写起来太麻烦。为了完成工作，我们需要找寻更简单更有效率的方法。那么html5该如何去做众多移动设备的适配呢？我目前已知的有3种解决方法，将会在下文的第2,3,4部分阐述，如果你阅读之后，有什么想法，尽可在评论中与我交流。<br><br></p>
+<p>在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，该类在不同分辨率下对应的实际宽度如下：<br><br><br>321px &lt;= device-width   .item的width：34px376px &lt;= device-width   .item的width：37.4px415px &lt;= device-width   .item的width：40.8px640px &lt;= device-width   .item的width：51px720px &lt;= device-width   .item的width：76.5px750px &lt;= device-width   .item的width：79.8999999px800px   .item的width：85px</p>
+<p><br><br>  以上代码乍看没啥问题，响应式设计不就应该是这么干的吗？但是从工作量和复杂度方面来考虑，它有以下几个不足：<br>  （1）.item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。<br>  （2）以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦<br>  （3）设计稿都是以分辨率来标明尺寸的，前端在根据设计稿里各个元素的像素尺寸转换为rem时，该以哪个font-size为准呢？这需要去写才能知道。<br>  正是因为以上提到的一些不足，我觉得这种适配方式不是特别好，写起来太麻烦。为了完成工作，我们需要找寻更简单更有效率的方法。那么html5该如何去做众多移动设备的适配呢？我目前已知的有3种解决方法，将会在下文的第2,3,4部分阐述，如果你阅读之后，有什么想法，尽可在评论中与我交流。<br><br></p>
 <p>  #2. 简单问题简单解决</p>
 <p>  我觉得有些web app并一定很复杂，比如拉勾网，你看看它的页面在iphone4,iphone6,ipad下的样子就知道了：<br>  <img src="/assets/blogImg/iphone46.png" alt="原图 by ruynzhang"><br>  <img src="/assets/blogImg/ipd.png" alt="原图 by ruynzhang"></p>
 <p>  它的页面有一个特点，就是：<br>  顶部与底部的bar不管分辨率怎么变，它的高度和位置都不变<br>  中间每条招聘信息不管分辨率怎么变，招聘公司的图标等信息都位于条目的左边，薪资都位于右边<br>  这种app是一种典型的弹性布局：关键元素高宽和位置都不变，只有容器元素在做伸缩变换。对于这类app，记住一个开发原则就好：文字流式，控件弹性，图片等比缩放。以图描述：<br>  <img src="/assets/blogImg/app.png" alt="原图 by ruynzhang"></p>
