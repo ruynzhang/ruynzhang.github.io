@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/dpr2.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/dpr3.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/moblie-tb.png">
-<meta property="og:updated_time" content="2016-01-08T09:20:03.953Z">
+<meta property="og:updated_time" content="2016-01-08T09:25:22.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网易与淘宝的font-size思考前端设计稿与工作流">
 <meta name="twitter:description" content="#阅读目录
@@ -297,10 +297,19 @@
 本文结合自己对网易与淘宝移动端首页html元素上的font-size这个属性的思考与学习，讨论html5设计稿尺寸以及前端与设计之间协作流程的问题，内容较多，但对你的技术和工作一定有价值，欢迎阅读和点评：）。<br>#1. 问题的引出</li>
 </ol>
 <p>最近阅读白树的博文《移动web资源整理》时，他在博文中有一段指出，如果html5要适应各种分辨率的移动设备，应该使用rem这样的尺寸单位，同时给出了一段针对各个分辨率范围在html上设置font-size的代码：</p>
-<pre>html{font-size:10px}@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}@media screen and (min-width:800px){html{font-size:25px}}</pre>
+<pre>html{font-size:10px}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+@media screen and (min-width:800px){html{font-size:25px}}
+</pre>
 
 <p>在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，该类在不同分辨率下对应的实际宽度如下：</p>
-<pre>321px <= device-width="" <="375px，font-size:11px" ---="">  .item的width：34px376px <= device-width="" <="414px，font-size:12px" ---="">  .item的width：37.4px415px <= device-width="" <="639px，font-size:15px" ---="">  .item的width：40.8px640px <= device-width="" <="719px，font-size:20px" ---="">  .item的width：51px720px <= device-width="" <="749px，font-size:22.5px" ---="">  .item的width：76.5px750px <= device-width="" <="799px，font-size:23.5px" ---="">  .item的width：79.8999999px800px <= device-width="" ，font-size:25px="" ---="">  .item的width：85px</=></=></=></=></=></=></=></pre>
+<pre>321px <= device-width="" <="375px，font-size:11px" ---="">  .item的width：34px376px <= device-width="" <="414px，font-size:12px" ---="">  .item的width：37.4px415px <= device-width="" <="639px，font-size:15px" ---="">  .item的width：40.8px640px <= device-width="" <="719px，font-size:20px" ---="">  .item的width：51px720px <= device-width="" <="749px，font-size:22.5px" ---="">  .item的width：76.5px750px <= device-width="" <="799px，font-size:23.5px" ---="">  .item的width：79.8999999px800px <= device-width="" ，font-size:25px="" ---="">  .item的width：85px
+ </=></=></=></=></=></=></=></pre>
 
 <p>  以上代码乍看没啥问题，响应式设计不就应该是这么干的吗？但是从工作量和复杂度方面来考虑，它有以下几个不足：<br>  （1）.item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。<br>  （2）以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦<br>  （3）设计稿都是以分辨率来标明尺寸的，前端在根据设计稿里各个元素的像素尺寸转换为rem时，该以哪个font-size为准呢？这需要去写才能知道。<br>  正是因为以上提到的一些不足，我觉得这种适配方式不是特别好，写起来太麻烦。为了完成工作，我们需要找寻更简单更有效率的方法。那么html5该如何去做众多移动设备的适配呢？我目前已知的有3种解决方法，将会在下文的第2,3,4部分阐述，如果你阅读之后，有什么想法，尽可在评论中与我交流。<br><br></p>
 <p>  #2. 简单问题简单解决</p>
@@ -317,10 +326,9 @@
 <p>它是根据什么计算的，这就跟设计稿有关了，拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。根据这个计算规则，可得出本部分开始的四张截图中html的font-size大小如下：<br>              deviceWidth = 320，font-size = 320 / 6.4 = 50pxdeviceWidth = 375，font-size = 375 / 6.4 = 58.59375pxdeviceWidth = 414，font-size = 414 / 6.4 = 64.6875pxdeviceWidth = 500，font-size = 500 / 6.4 = 78.125px<br>事实上网易就是这么干的，你看它的代码就知道，body元素的宽是：<br><img src="/assets/blogImg/body-code.png" alt="原图 by ruynzhang"></p>
 <p>根据这个可以肯定它的设计稿竖着时的横向分辨率为640。然后你再看看网易在分辨率为320<em>680，375</em>680，414<em>680，500</em>680时，html的font-size是不是与上面计算的一致：<br> <img src="/assets/blogImg/size.png" alt="原图 by ruynzhang"></p>
 <p>这个deviceWidth通过document.documentElement.clientWidth就能取到了，所以当页面的dom ready后，做的第一件事情就是：<br>           <pre>document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + ‘px’;</pre><br>这个6.4怎么来的，当然是根据设计稿的横向分辨率/100得来的。下面总结下网易的这种做法：<br>（1）先拿设计稿竖着的横向分辨率除以100得到body元素的宽度：<br>如果设计稿基于iphone6，横向分辨率为750，body的width为750 / 100 = 7.5rem如果设计稿基于iphone4/5，横向分辨率为640，body的width为640 / 100 = 6.4rem<br>（2）布局时，设计图标注的尺寸除以100得到css中的尺寸，比如下图：<br><img src="/assets/blogImg/ph-size.png" alt="原图 by ruynzhang"></p>
-<p>播放器高度为210px，写样式的时候css应该这么写：height: 2.1rem。之所以取一个100作为参照，就是为了这里计算rem的方便！<br>（3）在dom ready以后，通过以下代码设置html的font-size:<br>         <pre>document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + ‘px’;</pre><br>6.4只是举个例子，如果是750的设计稿，应该除以7.5。<br>（4）font-size可能需要额外的媒介查询，并且font-size不能使用rem，如网易的设置：<br>              <pre>  @media screen and (max-width:321px){    .m-navlist{font-size:15px}}@media screen and (min-width:321px) and (max-width:400px){    .m-navlist{font-size:16px}}@media screen and (min-width:400px){    .m-navlist{font-size:18px}}</pre><br>    最后还有2个情况要说明：<br>    第一，如果采用网易这种做法，视口要如下设置：<br>    <pre><meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"></pre><br>    第二，当deviceWidth大于设计稿的横向分辨率时，html的font-size始终等于横向分辨率/body元素宽：<br>    <img src="/assets/blogImg/ht-size2.png" alt="原图 by ruynzhang"></p>
-<pre><code>之所以这么干，是因为当deviceWidth大于640时，则物理分辨率大于1280（这就看设备的devicePixelRatio这个值了），应该去访问pc网站了。事实就是这样，你从手机访问网易，看到的是触屏版的页面，如果从pad访问，看到的就是电脑版的页面。如果你也想这么干，只要把总结中第三步的代码稍微改一下就行了：
-      &lt;pre&gt;var deviceWidth = document.documentElement.clientWidth;if(deviceWidth &gt; 640) deviceWidth = 640;document.documentElement.style.fontSize = deviceWidth / 6.4 + &apos;px&apos;;&lt;/pre&gt;
-</code></pre><p>   ##4. 淘宝的做法</p>
+<p>播放器高度为210px，写样式的时候css应该这么写：height: 2.1rem。之所以取一个100作为参照，就是为了这里计算rem的方便！<br>（3）在dom ready以后，通过以下代码设置html的font-size:<br>         <pre>document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + ‘px’;</pre><br>6.4只是举个例子，如果是750的设计稿，应该除以7.5。<br>（4）font-size可能需要额外的媒介查询，并且font-size不能使用rem，如网易的设置：<br>       <pre><br>       @media screen and (max-width:321px){.m-navlist{font-size:15px}}<br>       @media screen and (min-width:321px) and (max-width:400px){.m-navlist{font-size:16px}}<br>       @media screen and (min-width:400px){.m-navlist{font-size:18px}}<br>       </pre><br> 最后还有2个情况要说明：<br> 第一，如果采用网易这种做法，视口要如下设置：<br>    <pre><br>    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"><br>    </pre><br> 第二，当deviceWidth大于设计稿的横向分辨率时，html的font-size始终等于横向分辨率/body元素宽：<br>    <img src="/assets/blogImg/ht-size2.png" alt="原图 by ruynzhang"></p>
+<p>之所以这么干，是因为当deviceWidth大于640时，则物理分辨率大于1280（这就看设备的devicePixelRatio这个值了），应该去访问pc网站了。事实就是这样，你从手机访问网易，看到的是触屏版的页面，如果从pad访问，看到的就是电脑版的页面。如果你也想这么干，只要把总结中第三步的代码稍微改一下就行了：<br>          <pre><br>          var deviceWidth = document.documentElement.clientWidth;<br>          if(deviceWidth &gt; 640) deviceWidth = 640;document.documentElement.style.fontSize = deviceWidth / 6.4 + ‘px’;<br>          </pre></p>
+<p>   ##4. 淘宝的做法</p>
 <p>   看看淘宝在不同分辨率下，呈现的效果：<br>    <img src="/assets/blogImg/tb.png" alt="原图 by ruynzhang"></p>
 <p>淘宝的效果跟网易的效果其实是类似的，随着分辨率的变化，页面元素的尺寸和间距都相应变化，这是因为淘宝的尺寸也是使用了rem的原因。在介绍它的做法之前，先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>         <pre><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></pre></p>
 <p>   这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>   设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br>   devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已知，并且不变的，目前高清屏，普遍都是2，不过还有更高的，比如2.5, 3 等，我魅族note的手机的devicePixelRatio就是3。淘宝触屏版布局的前提就是viewport的scale根据devicePixelRatio动态设置：s<br>  <img src="/assets/blogImg/dpr.png" alt="原图 by ruynzhang"><br>  这么做目的当然是为了保证页面的大小与设计稿保持一致了，比如设计稿如果是750的横向分辨率，那么实际页面的device-width，以iphone6来说，也等于750，这样的话设计稿上标注的尺寸只要除以某一个值就能够转换为rem了。通过js设置viewport的方法如下：</p>
