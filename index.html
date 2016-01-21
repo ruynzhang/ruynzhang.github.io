@@ -238,28 +238,6 @@
 
 <p>下载nodejs安装包：</p>
 <pre>#wget http://nodejs.org/dist/v0.10.17/node-v0.10.17.tar.gz</pre>
-2，解压文件并安装
-<pre>
-#  tar xvf node-v0.10.17.tar.gz
-#  cd node-v0.10.17
-#  ./configure
-# make
-# make install
-# cp /usr/local/bin/node /usr/sbin/
-</pre>
-查看当前安装的Node的版本
-<pre># node -v</pre>
-
-<p><img src="/assets/blogImg/nodev.png" alt="原图 by ruynzhang"></p>
-<p>linus 服务器安装npm<br>安装NPM：</p>
-<pre>curl http://npmjs.org/install.sh | sh</pre>
-如果没有权限会安装不成功，需要加上sudo来确保权限：
-<pre>curl http://npmjs.org/install.sh | sudo sh</pre>
-
-<p>通过sudo npm install  express -g 命令安装了express，但是在执行express -V，出现  -bash: express: command not found<br><img src="/assets/blogImg/express8.png" alt="原图 by ruynzhang"><br>在官网找到了解决方法是 express 4需要通过 下面的命令安装</p>
-<pre>npm install -g express-generator</pre>
-
-
       
     </div>
     
@@ -272,6 +250,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/21/linus-install-nodejs/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -316,15 +298,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>首先，我们需要安装express库。在Express3.6.x之前的版本，Express需要全局安装的，项目构建器模块是合并在Express项目中的，后来这个构建器被拆分出来，独立成为了一个项目express-generator，现在我们只需要全局安装express-generator项目就行了。</p>
-<p><pre>npm install -g express-generator@4</pre><br><img src="/assets/blogImg/express1.png" alt="原图 by ruynzhang"><br>安装好express-generator包后，我们在命令行就可以使用express命令了。<br> <pre>express -V # 检查express的版本</pre><br> <img src="/assets/blogImg/express2.png" alt="原图 by ruynzhang"><br>接下来，我们使用express的命令，来创建项目了。</p>
-<p><pre>express -e nodejs-demo  # 创建项目</pre><br><img src="/assets/blogImg/express3.png" alt="原图 by ruynzhang"><br>进入项目目录，下载依赖库，构建项目。</p>
-<p><pre>D:\Program Files\nodejs&gt;cd nodejs-demo &amp;&amp; npm install -d</pre><br><img src="/assets/blogImg/express4.png" alt="原图 by ruynzhang"><br>启动项目:<pre>npm start</pre><br><img src="/assets/blogImg/express5.png" alt="原图 by ruynzhang"></p>
-<p>项目启动成功，打开浏览器 <a href="http://localhost:3000，就可以看到显示的页面了。" target="_blank" rel="external">http://localhost:3000，就可以看到显示的页面了。</a><br><img src="/assets/blogImg/express6.png" alt="原图 by ruynzhang"></p>
-<ol>
-<li>目录结构</li>
-</ol>
-<p>接下来，我们详细看一下Express4项目的结构、配置和使用。<br>bin, 存放启动项目的脚本文件<br>node_modules, 存放所有的项目依赖库。<br>public，静态文件(css,js,img)<br>routes，路由文件(MVC中的C,controller)<br>views，页面文件(Ejs模板)<br>package.json，项目依赖配置及开发者信息<br>app.js，应用核心配置文件<br><img src="/assets/blogImg/express7.png" alt="原图 by ruynzhang"></p>
-
+<p><pre>npm install -g express-generator@4</pre><br><img src="/assets/blogImg/express1.png" alt="原图 by ruynzhang"><br>
       
     </div>
     
@@ -337,6 +311,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/21/install-express-project/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
