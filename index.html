@@ -109,7 +109,7 @@
 					        
 								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
 					        
-								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
 					        
 						</div>
 					</nav>
@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端工程师/" style="font-size: 10px;">前端工程师</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/资源/" style="font-size: 12.5px;">资源</a> <a href="/tags/转载分享/" style="font-size: 17.5px;">转载分享</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端工程师/" style="font-size: 10px;">前端工程师</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/资源/" style="font-size: 12.5px;">资源</a> <a href="/tags/转载分享/" style="font-size: 17.5px;">转载分享</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
 					</div>
 				</section>
 				
@@ -196,7 +196,7 @@
 			        
 						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
 			        
-						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
 			        
 				</div>
 			</nav>
@@ -205,6 +205,154 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linus-install-nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/21/linus-install-nodejs/" class="article-date">
+  	<time datetime="2016-01-21T08:16:00.000Z" itemprop="datePublished">2016-01-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/21/linus-install-nodejs/">linus 服务器安装nodejs ,npm</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>linus 服务器安装nodejs:</p>
+<p>登陆到Linux终端，进入/usr/local/src目录，如下：</p>
+<pre>root@ubuntu:~# cd /usr/local/src/</pre>
+
+<p>下载nodejs安装包：</p>
+<pre>#wget http://nodejs.org/dist/v0.10.17/node-v0.10.17.tar.gz</pre>
+2，解压文件并安装
+<pre>
+#  tar xvf node-v0.10.17.tar.gz
+#  cd node-v0.10.17
+#  ./configure
+# make
+# make install
+# cp /usr/local/bin/node /usr/sbin/
+</pre>
+查看当前安装的Node的版本
+<pre># node -v</pre>
+
+<p><img src="/assets/blogImg/nodev.png" alt="原图 by ruynzhang"></p>
+<p>linus 服务器安装npm<br>安装NPM：</p>
+<pre>curl http://npmjs.org/install.sh | sh</pre>
+如果没有权限会安装不成功，需要加上sudo来确保权限：
+<pre>curl http://npmjs.org/install.sh | sudo sh</pre>
+
+<p>通过sudo npm install  express -g 命令安装了express，但是在执行express -V，出现  -bash: express: command not found<br><img src="/assets/blogImg/express8.png" alt="原图 by ruynzhang"><br>在官网找到了解决方法是 express 4需要通过 下面的命令安装</p>
+<pre>npm install -g express-generator</pre>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-install-express-project" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/21/install-express-project/" class="article-date">
+  	<time datetime="2016-01-21T08:12:00.000Z" itemprop="datePublished">2016-01-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/21/install-express-project/">win7安装express和创建项目</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，我们需要安装express库。在Express3.6.x之前的版本，Express需要全局安装的，项目构建器模块是合并在Express项目中的，后来这个构建器被拆分出来，独立成为了一个项目express-generator，现在我们只需要全局安装express-generator项目就行了。</p>
+<p><pre>npm install -g express-generator@4</pre><br><img src="/assets/blogImg/express1.png" alt="原图 by ruynzhang"><br>安装好express-generator包后，我们在命令行就可以使用express命令了。<br> <pre>express -V # 检查express的版本</pre><br> <img src="/assets/blogImg/express2.png" alt="原图 by ruynzhang"><br>接下来，我们使用express的命令，来创建项目了。</p>
+<p><pre>express -e nodejs-demo  # 创建项目</pre><br><img src="/assets/blogImg/express3.png" alt="原图 by ruynzhang"><br>进入项目目录，下载依赖库，构建项目。</p>
+<p><pre>D:\Program Files\nodejs&gt;cd nodejs-demo &amp;&amp; npm install -d</pre><br><img src="/assets/blogImg/express4.png" alt="原图 by ruynzhang"><br>启动项目:<pre>npm start</pre><br><img src="/assets/blogImg/express5.png" alt="原图 by ruynzhang"></p>
+<p>项目启动成功，打开浏览器 <a href="http://localhost:3000，就可以看到显示的页面了。" target="_blank" rel="external">http://localhost:3000，就可以看到显示的页面了。</a><br><img src="/assets/blogImg/express6.png" alt="原图 by ruynzhang"></p>
+<ol>
+<li>目录结构</li>
+</ol>
+<p>接下来，我们详细看一下Express4项目的结构、配置和使用。<br>bin, 存放启动项目的脚本文件<br>node_modules, 存放所有的项目依赖库。<br>public，静态文件(css,js,img)<br>routes，路由文件(MVC中的C,controller)<br>views，页面文件(Ejs模板)<br>package.json，项目依赖配置及开发者信息<br>app.js，应用核心配置文件<br><img src="/assets/blogImg/express7.png" alt="原图 by ruynzhang"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-think-design-workflow" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -578,68 +726,6 @@
 
 
   
-    <article id="post-web-tools-frameworks" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/05/web-tools-frameworks/" class="article-date">
-  	<time datetime="2016-01-05T08:55:00.000Z" itemprop="datePublished">2016-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/05/web-tools-frameworks/">分享我收集的前端好资源：工具、框架</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####前端好工具</p>
-<p><a href="http://devdocs.io/html/">DevDocs:前端API阅读器</a><br>DevDocs是一个界面简单优雅的HTML、CSS、DOM、DOM事件、JavaScript和jQuery等API阅读器。</p>
-<p><a href="http://tool.oschina.net/">开源中国在线工具-OSTools</a><br>为开发设计人员提供在线工具，提供jsbin、CSS、JS、JAVA API,PHP API、Node.js API、Less CSS编译器，MarkDown编译器等工具<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载分享/">转载分享</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/05/web-tools-frameworks/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-web-great-infomation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -702,11 +788,11 @@
 
 
   
-    <article id="post-local-update-github" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-web-tools-frameworks" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/05/local-update-github/" class="article-date">
-  	<time datetime="2016-01-05T07:55:00.000Z" itemprop="datePublished">2016-01-05</time>
+      <a href="/2016/01/05/web-tools-frameworks/" class="article-date">
+  	<time datetime="2016-01-05T08:55:00.000Z" itemprop="datePublished">2016-01-05</time>
 </a>
     </div>
   
@@ -719,7 +805,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/05/local-update-github/">从本地上传代码到github</a>
+      <a class="article-title" href="/2016/01/05/web-tools-frameworks/">分享我收集的前端好资源：工具、框架</a>
     </h1>
   
 
@@ -728,8 +814,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一步：建立git仓库<br>cd到你的本地项目根目录下，执行git命令<br>                        git init</p>
-<p>第二步：将项目的所有文件添加到仓库中<br>                        git add .<br>
+        <p>####前端好工具</p>
+<p><a href="http://devdocs.io/html/">DevDocs:前端API阅读器</a><br>DevDocs是一个界面简单优雅的HTML、CSS、DOM、DOM事件、JavaScript和jQuery等API阅读器。</p>
+<p><a href="http://tool.oschina.net/">开源中国在线工具-OSTools</a><br>为开发设计人员提供在线工具，提供jsbin、CSS、JS、JAVA API,PHP API、Node.js API、Less CSS编译器，MarkDown编译器等工具<br>
       
     </div>
     
@@ -737,14 +824,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载分享/">转载分享</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/01/05/local-update-github/#more">more >></a>
+          <a  href="/2016/01/05/web-tools-frameworks/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -763,67 +850,10 @@
 
 
   
-    <article id="post-nodejs-hexo-blog" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/01/05/nodejs-hexo-blog/" class="article-date">
-  	<time datetime="2016-01-05T06:16:00.000Z" itemprop="datePublished">2016-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/05/nodejs-hexo-blog/">用hexo建博客步骤</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####一. Hexo介绍</p>
-<p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。<br>发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….<br>Hexo的官方网站：<a href="http://hexo.io/">http://hexo.io/</a> ，也是基于Github构建的网站。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/05/nodejs-hexo-blog/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
