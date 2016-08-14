@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/14/hexo-move-place/index.html">
 <meta property="og:site_name" content="SHARE">
 <meta property="og:description" content="如果你把所有必须的文件都拷贝了，可以通过下面的指令在另一台电脑上重新部署（在拷贝的新的文件里通过git bash进行操作）：">
-<meta property="og:updated_time" content="2016-08-14T07:18:44.692Z">
+<meta property="og:updated_time" content="2016-08-14T07:24:44.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建博客从一台机子转移到另一台机子，如何配置部署">
 <meta name="twitter:description" content="如果你把所有必须的文件都拷贝了，可以通过下面的指令在另一台电脑上重新部署（在拷贝的新的文件里通过git bash进行操作）：">
@@ -242,8 +242,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 如果你把所有必须的文件都拷贝了，可以通过下面的指令在另一台电脑上重新部署（在拷贝的新的文件里通过git bash进行操作）：<br> <a id="more"></a><br> npm install hexo<br> npm install<br> npm install hexo-deployer-git<br> 记住，因为你不是重新搭建一个Hexo，而是想继续编辑之前的博客，所以不需要用hexo init这条指令。</p>
-<p> 然后还要重新设置ssh（按之前写的<a href="http://share.ruyn.cn/2016/01/05/nodejs-hexo-blog/" target="_blank" rel="external">http://share.ruyn.cn/2016/01/05/nodejs-hexo-blog/</a>）方法配置<br> 最后:<br> hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br> hexo generate //生成静态网页<br> hexo deploy //开始部署<br> 部署推送到github上</p>
+        <p> 如果你把所有必须的文件都拷贝了，可以通过下面的指令在另一台电脑上重新部署（在拷贝的新的文件里通过git bash进行操作）：<br> <a id="more"></a><br> <pre><br> npm install hexo<br> npm install<br> npm install hexo-deployer-git<br> </pre><br> 记住，因为你不是重新搭建一个Hexo，而是想继续编辑之前的博客，所以不需要用hexo init这条指令。</p>
+<p> 然后还要重新设置ssh（按之前写的<a href="http://share.ruyn.cn/2016/01/05/nodejs-hexo-blog/" target="_blank" rel="external">http://share.ruyn.cn/2016/01/05/nodejs-hexo-blog/</a>）方法配置<br> 最后:<br> <pre><br> hexo clean //清除缓存 网页正常情况下可以忽略此条命令<br> hexo generate //生成静态网页<br> hexo deploy //开始部署<br> </pre><br> 部署推送到github上</p>
 <p> 在这个过程中,hexo deploy如果有遇到ssh: Could not resolve hostname ssh.github.com: Name or service not known 的问题<br> 解决方法:<br> step1. ping github.com<br> 获取到github.com的ip地址，假如为192.30.252.128<br> step2. 在/etc/hosts中添加一行如下:<br> 192.30.252.128 github.com<br> 就可以正常推送</p>
 <p> 相关资料:<a href="http://www.zhihu.com/question/39400391?sort=created" target="_blank" rel="external">http://www.zhihu.com/question/39400391?sort=created</a></p>
 

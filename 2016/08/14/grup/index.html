@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/14/grup/index.html">
 <meta property="og:site_name" content="SHARE">
 <meta property="og:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
-<meta property="og:updated_time" content="2016-08-14T06:55:30.276Z">
+<meta property="og:updated_time" content="2016-08-14T07:23:50.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp">
 <meta name="twitter:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
@@ -247,16 +247,32 @@
 <p> 2，全局安装gulp<br> 命令：npm install gulp -g</p>
 <p> 查看是否正确安装：命令提示符执行gulp -v，出现版本号即为正确安装<br> 接下来，我们需要将gulp安装到项目本地,使用以下命令<br> <pre>npm install —-save-dev gulp</pre></p>
 <p> 说明：<br> 使用 —-save-dev 来更新package.json文件，更新 devDependencies值，以表明项目需要依赖gulp<br> gulp所以插件的安装方式都是按 npm install  插件名  –save-dev 的命令方式安装</p>
-<p> 由于package.json所需要的gulp插件已配置好了，所以只需要把package.json放到自己本地项目中，执行以下命令：<br> 1，npm install gulp -g<br> 2，npm install<br> 就可以将gulp的插件安装在本地</p>
-<p>3，配置gulpfile.js(由于我的gulpfile.js已经配置好了，所以可以直接放在项目中，然后直接按第4步运行)</p>
-<p>4, 运行任务</p>
-<p>根据你定义的gulp.task(“test”,function(){})</p>
-<p>用gulp test运行，一般默认是defalut;就可以用gulp直接运行</p>
-<p>end。</p>
-<p>附页说明(想了解可看)<br>在项目根目录下创建一个名为 gulpfile.js 的文件：<br>在该文件里加入：</p>
+<p> 由于package.json所需要的gulp插件已配置好了，所以只需要把package.json放到自己本地项目中，执行以下命令：</p>
+<pre>
+ 1，npm install gulp -g
+ 2，npm install
+ </pre>
+ 就可以将gulp的插件安装在本地
+
+3，配置gulpfile.js(由于我的gulpfile.js已经配置好了，所以可以直接放在项目中，然后直接按第4步运行)
+
+4, 运行任务
+
+根据你定义的gulp.task("test",function(){})
+
+用gulp test运行，一般默认是defalut;就可以用gulp直接运行
+
+end。
+
+
+
+
+附页说明(想了解可看)
+
+在项目根目录下创建一个名为 gulpfile.js 的文件：
+在该文件里加入：
 <pre>
 var gulp = require('gulp');
-
 
 // 引入gulp组件（插件）
 var uglify = require('gulp-uglify');  //压缩
@@ -278,7 +294,22 @@ gulp.src('script/jquery.js')
 //最终生成的文件路径为 dist/foo.js/jquery.js,而不是dist/foo.js
 </pre>
 
-<p>gulp使用流程例子：<br><br>gulp.task(‘test’, function () {    //获取到我们想要处理的文件流<br>var assets = useref.assets();<br>return gulp.src(‘test.html’)<br>        .pipe(assets)<br>        .pipe(gulpif(‘<em>.min.js’, uglify()))<br>        .pipe(gulpif(‘</em>.min.css’, minifyCss()))<br>        .pipe(rev())                // 重命名文件<br>.pipe(assets.restore())<br>        .pipe(revReplace())         // 重写文件名到html<br>.pipe(useref())<br>        .pipe(gulp.dest(‘www/test’+ new Date().getTime()))<br>});<br></p>
+<p>gulp使用流程例子：</p>
+<pre>
+gulp.task('test', function () {    //获取到我们想要处理的文件流
+var assets = useref.assets();
+return gulp.src('test.html')
+        .pipe(assets)
+        .pipe(gulpif('*.min.js', uglify()))
+        .pipe(gulpif('*.min.css', minifyCss()))
+        .pipe(rev())                // 重命名文件
+.pipe(assets.restore())
+        .pipe(revReplace())         // 重写文件名到html
+.pipe(useref())
+        .pipe(gulp.dest('www/test'+ new Date().getTime()))
+});
+</pre>
+
 <p>一些常用的gulp插件</p>
 <p>gulp的插件数量虽然没有grunt那么多，但也可以说是应有尽有了，下面列举一些常用的插件。</p>
 <p>1， 自动加载插件<br>使用gulp-load-plugins<br>安装：npm install –save-dev gulp-load-plugins</p>
@@ -318,9 +349,14 @@ var plugins = require('gulp-load-plugins')();
 </pre>
 
 <p>然后我们要使用gulp-rename和gulp-ruby-sass这两个插件的时候，就可以使用plugins.rename和plugins.rubySass来代替了,也就是原始插件名去掉gulp-前缀，之后再转换为驼峰命名。<br>实质上gulp-load-plugins是为我们做了如下的转换</p>
-<p>plugins.rename = require(‘gulp-rename’);<br>plugins.rubySass = require(‘gulp-ruby-sass’);</p>
+<pre>
+plugins.rename = require('gulp-rename');
+plugins.rubySass = require('gulp-ruby-sass');
+
+</pre>
+
 <p>gulp-load-plugins并不会一开始就加载所有package.json里的gulp插件，而是在我们需要用到某个插件的时候，才去加载那个插件。<br>最后要提醒的一点是，因为gulp-load-plugins是通过你的package.json文件来加载插件的，所以必须要保证你需要自动加载的插件已经写入到了package.json文件里，并且这些插件都是已经安装好了的。</p>
-<p>2 重命名<br>使用gulp-rename<br>安装：npm install –save-dev gulp-rename</p>
+<p>2 重命名<br>使用: gulp-rename<br>安装：npm install –save-dev gulp-rename</p>
 <p>用来重命名文件流中的文件。用gulp.dest()方法写入文件时，文件名使用的是文件流中的文件名，如果要想改变文件名，那可以在之前用gulp-rename插件来改变文件流中的文件名。</p>
 <pre>
 var gulp = require('gulp'),
@@ -336,7 +372,7 @@ gulp.task('rename', function () {
 });
 </pre>
 
-<p>3 js文件压缩<br>使用gulp-uglify<br>安装：npm install –save-dev gulp-uglify</p>
+<p>3 js文件压缩<br>使用: gulp-uglify<br>安装：npm install –save-dev gulp-uglify</p>
 <p>用来压缩js文件，使用的是uglify引擎</p>
 <pre>
 var gulp = require('gulp'),
@@ -362,7 +398,7 @@ gulp.task('minify-css', function () {
 });
 </pre>
 
-<p>5 html文件压缩<br>使用gulp-minify-html<br>安装：npm install –save-dev gulp-minify-html</p>
+<p>5 html文件压缩<br>使用: gulp-minify-html<br>安装：npm install –save-dev gulp-minify-html</p>
 <p>用来压缩html文件</p>
 <pre>
 var gulp = require('gulp'),
@@ -375,7 +411,7 @@ gulp.task('minify-html', function () {
 });
 </pre>
 
-<p>6 js代码检查<br>使用gulp-jshint<br>安装：npm install –save-dev gulp-jshint</p>
+<p>6 js代码检查<br>使用: gulp-jshint<br>安装：npm install –save-dev gulp-jshint</p>
 <p>用来检查js代码</p>
 <pre>
 var gulp = require('gulp'),
@@ -388,7 +424,7 @@ gulp.task('jsLint', function () {
 });
 </pre>
 
-<p>7 文件合并<br>使用gulp-concat<br>安装：npm install –save-dev gulp-concat<br>用来把多个文件合并为一个文件,我们可以用它来合并js或css文件等，这样就能减少页面的http请求数了</p>
+<p>7 文件合并<br>使用: gulp-concat<br>安装：npm install –save-dev gulp-concat<br>用来把多个文件合并为一个文件,我们可以用它来合并js或css文件等，这样就能减少页面的http请求数了</p>
 <pre>
 var gulp = require('gulp'),
 concat = require("gulp-concat");
