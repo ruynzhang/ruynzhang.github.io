@@ -30,7 +30,7 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step14.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step15.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/step16.png">
-<meta property="og:updated_time" content="2016-01-05T09:58:29.267Z">
+<meta property="og:updated_time" content="2016-05-15T05:10:48.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo建博客步骤">
 <meta name="twitter:description" content="####一. Hexo介绍
@@ -138,7 +138,7 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端工程师/" style="font-size: 10px;">前端工程师</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/资源/" style="font-size: 12.5px;">资源</a> <a href="/tags/转载分享/" style="font-size: 17.5px;">转载分享</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hbuilderApp/" style="font-size: 10px;">hbuilderApp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/input/" style="font-size: 12.5px;">input</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/select/" style="font-size: 10px;">select</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/type-file/" style="font-size: 12.5px;">type=file</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端工程师/" style="font-size: 10px;">前端工程师</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/图片预览/" style="font-size: 10px;">图片预览</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/资源/" style="font-size: 12.5px;">资源</a> <a href="/tags/转载分享/" style="font-size: 17.5px;">转载分享</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
 					</div>
 				</section>
 				
@@ -281,7 +281,8 @@ Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。�
 <p>（5）然后键入以下指令：ssh-agent -s<br><img src="/assets/blogImg/step12.png" alt="原图 by ruynzhang"></p>
 <p>（6）继续输入指令：ssh-add ~/.ssh/id_rsa</p>
 <p>（7）输入之后，在我这里是出错了，不知道你的有没有出错。<br><img src="/assets/blogImg/step13.png" alt="原图 by ruynzhang"></p>
-<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>                eval <code>ssh-agent -s</code><br>                ssh-add<br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
+<p>（8）如果你的也是这样子出错了的话，就输入以下指令：<br>                eval <code>ssh-agent -s</code><br>                ssh-add</p>
+<p>若执行ssh-add /path/to/xxx.pem是出现这个错误:Could not open a connection to your authentication agent，则先执行如下命令即可：<br>　　<pre>ssh-agent bash</pre><br><img src="/assets/blogImg/step14.png" alt="原图 by ruynzhang"></p>
 <p>（9）到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：<br>                clip &lt; ~/.ssh/id_rsa.pub</p>
 <p> （10）然后到Github里面，点击右上角的设置图标：<br><img src="/assets/blogImg/step15.png" alt="原图 by ruynzhang"></p>
 <p>在Settings sidebar 那里，点击 SSH keys ：</p>
