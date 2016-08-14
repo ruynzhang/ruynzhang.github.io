@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>gulp | SHARE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/grup/index.html">
+<meta property="og:site_name" content="SHARE">
+<meta property="og:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
+<meta property="og:updated_time" content="2016-08-14T06:55:30.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp">
+<meta name="twitter:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
+  
+    <link rel="alternative" href="/atom.xml" title="SHARE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/blogImg/me.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ruynzhang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Tomorrow is another day !!!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/tags/转载分享">转载分享</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ruynzhang/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hbuilderApp/" style="font-size: 10px;">hbuilderApp</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/input/" style="font-size: 12px;">input</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/nodejs/" style="font-size: 14px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/select/" style="font-size: 10px;">select</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/type-file/" style="font-size: 12px;">type=file</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端工程师/" style="font-size: 10px;">前端工程师</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/图片预览/" style="font-size: 10px;">图片预览</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/资源/" style="font-size: 12px;">资源</a> <a href="/tags/转载分享/" style="font-size: 18px;">转载分享</a> <a href="/tags/闪跳归位现象/" style="font-size: 10px;">闪跳归位现象</a> <a href="/tags/随笔/" style="font-size: 16px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.daqianduan.com/">大前端</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭-鑫空间-鑫生活</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/rubylouvre/">司徒正美博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.fens.me/">粉丝日志</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.qianduan.net/">前端观察</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jiawin.com/">觉唯</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">在前端领域努力奋力的程序员，创建这个博客，在于记录生活点滴，陶冶情操，分享技术，共同进步。。。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ruynzhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/assets/blogImg/me.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Ruynzhang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Tomorrow is another day !!!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/tags/转载分享">转载分享</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ruynzhang/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-grup" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/14/grup/" class="article-date">
+  	<time datetime="2016-08-14T01:22:00.000Z" itemprop="datePublished">2016-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gulp
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>流程：<br>安装nodejs -&gt; 全局安装gulp -&gt; 项目安装gulp以及gulp插件 -&gt; 配置gulpfile.js -&gt; 运行任务<br> <a id="more"></a><br> 1、安装nodejs</p>
+<p> 到官网下载nodejs，按常规软件安装方式安装。<br> 可以用node -v 查 看不否已正确安装nodejs</p>
+<p> 2，全局安装gulp<br> 命令：npm install gulp -g</p>
+<p> 查看是否正确安装：命令提示符执行gulp -v，出现版本号即为正确安装<br> 接下来，我们需要将gulp安装到项目本地,使用以下命令<br> <pre>npm install —-save-dev gulp</pre></p>
+<p> 说明：<br> 使用 —-save-dev 来更新package.json文件，更新 devDependencies值，以表明项目需要依赖gulp<br> gulp所以插件的安装方式都是按 npm install  插件名  –save-dev 的命令方式安装</p>
+<p> 由于package.json所需要的gulp插件已配置好了，所以只需要把package.json放到自己本地项目中，执行以下命令：<br> 1，npm install gulp -g<br> 2，npm install<br> 就可以将gulp的插件安装在本地</p>
+<p>3，配置gulpfile.js(由于我的gulpfile.js已经配置好了，所以可以直接放在项目中，然后直接按第4步运行)</p>
+<p>4, 运行任务</p>
+<p>根据你定义的gulp.task(“test”,function(){})</p>
+<p>用gulp test运行，一般默认是defalut;就可以用gulp直接运行</p>
+<p>end。</p>
+<p>附页说明(想了解可看)<br>在项目根目录下创建一个名为 gulpfile.js 的文件：<br>在该文件里加入：</p>
+<pre>
+var gulp = require('gulp');
+
+
+// 引入gulp组件（插件）
+var uglify = require('gulp-uglify');  //压缩
+var rev = require('gulp-rev'); //给文件加MD5戳
+var watch = require('gulp-watch'); //
+var minifyCss = require('gulp-minify-css');
+var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
+var clean = require('gulp-clean');
+var revReplace = require('gulp-rev-replace');
+</pre>
+
+<p>gulp的使用流程一般是这样子的：<br>    1,通过gulp.src()方法获取到我们想要处理的文件流，<br>    2,把文件流通过pipe方法导入到gulp的插件中，<br>    3,把经过插件处理后的流再通过pipe方法导入到gulp.dest()中，gulp.dest()方法则把流中的内容写入到文件中<br>      gulp.dest()传入的路径参数只能用来指定要生成的文件的目录，而不能指定生成文件的文件名，它生成文件的文件名使用的是导入到它的文件流自身的文件名，所以生成的文件名是由导入到它的文件流决定的，即使我们给它传入一个带有文件名的路径参数，然后它也会把这个文件名当做是目录名</p>
+<p>例：</p>
+<pre>
+var gulp = require('gulp');
+gulp.src('script/jquery.js')
+ .pipe(gulp.dest('dist/foo.js'));
+//最终生成的文件路径为 dist/foo.js/jquery.js,而不是dist/foo.js
+</pre>
+
+<p>gulp使用流程例子：<br><br>gulp.task(‘test’, function () {    //获取到我们想要处理的文件流<br>var assets = useref.assets();<br>return gulp.src(‘test.html’)<br>        .pipe(assets)<br>        .pipe(gulpif(‘<em>.min.js’, uglify()))<br>        .pipe(gulpif(‘</em>.min.css’, minifyCss()))<br>        .pipe(rev())                // 重命名文件<br>.pipe(assets.restore())<br>        .pipe(revReplace())         // 重写文件名到html<br>.pipe(useref())<br>        .pipe(gulp.dest(‘www/test’+ new Date().getTime()))<br>});<br></p>
+<p>一些常用的gulp插件</p>
+<p>gulp的插件数量虽然没有grunt那么多，但也可以说是应有尽有了，下面列举一些常用的插件。</p>
+<p>1， 自动加载插件<br>使用gulp-load-plugins<br>安装：npm install –save-dev gulp-load-plugins</p>
+<p>要使用gulp的插件，首先得用require来把插件加载进来，如果我们要使用的插件非常多，那我们的gulpfile.js文件开头可能就会是这个样子的：</p>
+<pre>
+var gulp = require('gulp');
+
+// 引入gulp组件（插件）
+var uglify = require('gulp-uglify');
+var rev = require('gulp-rev');
+var watch = require('gulp-watch');
+var minifyCss = require('gulp-minify-css');
+/*var concat = require('gulp-concat');*/
+var useref = require('gulp-useref');
+/*var filter = require('gulp-filter');*/
+var gulpif = require('gulp-if');
+var clean = require('gulp-clean');
+var revReplace = require('gulp-rev-replace');
+</pre>
+
+<p>虽然这没什么问题，但会使我们的gulpfile.js文件变得很冗长，看上去不那么舒服。gulp-load-plugins插件正是用来解决这个问题。<br>gulp-load-plugins这个插件能自动帮你加载package.json文件里的gulp插件。例如假设你的package.json文件里的依赖是这样的:</p>
+<pre>
+{
+"devDependencies": {
+"gulp": "~3.6.0",
+"gulp-rename": "~1.2.0",
+"gulp-ruby-sass": "~0.4.3",
+"gulp-load-plugins": "~0.5.1"
+}
+}
+</pre>
+然后我们可以在gulpfile.js中使用gulp-load-plugins来帮我们加载插件：
+<pre>
+var gulp = require('gulp');
+//加载gulp-load-plugins插件，并马上运行它
+var plugins = require('gulp-load-plugins')();
+</pre>
+
+<p>然后我们要使用gulp-rename和gulp-ruby-sass这两个插件的时候，就可以使用plugins.rename和plugins.rubySass来代替了,也就是原始插件名去掉gulp-前缀，之后再转换为驼峰命名。<br>实质上gulp-load-plugins是为我们做了如下的转换</p>
+<p>plugins.rename = require(‘gulp-rename’);<br>plugins.rubySass = require(‘gulp-ruby-sass’);</p>
+<p>gulp-load-plugins并不会一开始就加载所有package.json里的gulp插件，而是在我们需要用到某个插件的时候，才去加载那个插件。<br>最后要提醒的一点是，因为gulp-load-plugins是通过你的package.json文件来加载插件的，所以必须要保证你需要自动加载的插件已经写入到了package.json文件里，并且这些插件都是已经安装好了的。</p>
+<p>2 重命名<br>使用gulp-rename<br>安装：npm install –save-dev gulp-rename</p>
+<p>用来重命名文件流中的文件。用gulp.dest()方法写入文件时，文件名使用的是文件流中的文件名，如果要想改变文件名，那可以在之前用gulp-rename插件来改变文件流中的文件名。</p>
+<pre>
+var gulp = require('gulp'),
+rename = require('gulp-rename'),
+uglify = require("gulp-uglify");
+
+gulp.task('rename', function () {
+    gulp.src('js/jquery.js')
+        .pipe(uglify())  //压缩
+.pipe(rename('jquery.min.js')) //会将jquery.js重命名为jquery.min.js
+.pipe(gulp.dest('js'));  //设置生成的文件放置的位置
+//关于gulp-rename的更多强大的用法请参考https://www.npmjs.com/package/gulp-rename
+});
+</pre>
+
+<p>3 js文件压缩<br>使用gulp-uglify<br>安装：npm install –save-dev gulp-uglify</p>
+<p>用来压缩js文件，使用的是uglify引擎</p>
+<pre>
+var gulp = require('gulp'),
+uglify = require("gulp-uglify");
+
+gulp.task('minify-js', function () {
+    gulp.src('js/*.js') // 要压缩的js文件
+.pipe(uglify())  //使用uglify进行压缩,更多配置请参考：
+.pipe(gulp.dest('dist/js')); //压缩后的路径
+});
+</pre>
+
+<p>4 css文件压缩<br>使用gulp-minify-css<br>安装：npm install –save-dev gulp-minify-css</p>
+<p>要压缩css文件时可以使用该插件</p>
+<pre>
+var gulp = require('gulp'),
+minifyCss = require("gulp-minify-css");
+
+gulp.task('minify-css', function () {
+    gulp.src('css/*.css') // 要压缩的css文件
+.pipe(minifyCss()) //压缩css
+.pipe(gulp.dest('dist/css'));
+});
+</pre>
+
+<p>5 html文件压缩<br>使用gulp-minify-html<br>安装：npm install –save-dev gulp-minify-html</p>
+<p>用来压缩html文件</p>
+<pre>
+var gulp = require('gulp'),
+minifyHtml = require("gulp-minify-html");
+
+gulp.task('minify-html', function () {
+    gulp.src('html/*.html') // 要压缩的html文件
+.pipe(minifyHtml()) //压缩
+.pipe(gulp.dest('dist/html'));
+});
+</pre>
+
+<p>6 js代码检查<br>使用gulp-jshint<br>安装：npm install –save-dev gulp-jshint</p>
+<p>用来检查js代码</p>
+<pre>
+var gulp = require('gulp'),
+jshint = require("gulp-jshint");
+
+gulp.task('jsLint', function () {
+    gulp.src('js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter()); // 输出检查结果
+});
+</pre>
+
+<p>7 文件合并<br>使用gulp-concat<br>安装：npm install –save-dev gulp-concat<br>用来把多个文件合并为一个文件,我们可以用它来合并js或css文件等，这样就能减少页面的http请求数了</p>
+<pre>
+var gulp = require('gulp'),
+concat = require("gulp-concat");
+
+gulp.task('concat', function () {
+    gulp.src('js/*.js')  //要合并的文件
+.pipe(concat('all.js'))  // 合并匹配到的js文件并命名为 "all.js"
+.pipe(gulp.dest('dist/js'));
+});
+</pre>
+
+<p>8 less和sass的编译<br>less使用gulp-less,安装：npm install –save-dev gulp-less</p>
+<pre>
+var gulp = require('gulp'),
+less = require("gulp-less");
+
+gulp.task('compile-less', function () {
+    gulp.src('less/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('dist/css'));
+})
+</pre>
+
+<p>sass使用gulp-sass,安装：npm install –save-dev gulp-sass</p>
+<pre>
+var gulp = require('gulp'),
+sass = require("gulp-sass");
+
+gulp.task('compile-sass', function () {
+    gulp.src('sass/*.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('dist/css'));
+});;
+</pre>
+
+<p>9 图片压缩<br>可以使用gulp-imagemin插件来压缩jpg、png、gif等图片。<br>安装：npm install –save-dev gulp-imagemin</p>
+<pre>
+var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant'); //png图片压缩插件
+
+gulp.task('default', function () {
+return gulp.src('src/images/*')
+        .pipe(imagemin({
+progressive: true,
+use: [pngquant()] //使用pngquant来压缩png图片
+}))
+        .pipe(gulp.dest('dist'));
+});
+</pre>
+
+<p>gulp-imagemin的使用比较复杂一点，而且它本身也有很多插件，建议去它的项目主页看看文档</p>
+<p>10 自动刷新<br>使用gulp-livereload插件，安装:npm install –save-dev gulp-livereload。<br>当代码变化时，它可以帮我们自动刷新页面<br>该插件最好配合谷歌浏览器来使用，且要安装livereload chrome extension扩展插件,不能下载的请自行FQ。</p>
+<pre>
+var gulp = require('gulp'),
+less = require('gulp-less'),
+livereload = require('gulp-livereload');
+
+gulp.task('less', function() {
+    gulp.src('less/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('css'))
+        .pipe(livereload());
+});
+gulp.task('watch', function() {
+    livereload.listen(); //要在这里调用listen()方法
+gulp.watch('less/*.less', ['less']);
+});
+
+</pre>
+
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/13/position-sticky/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">position:sticky解决fixed在ios下出现闪跳归位现象</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="grup" data-title="gulp" data-url="http://yoursite.com/2016/08/14/grup/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		Copyright &copy; 2016 Ruynzhang
+    	</div>
+      	<div class="footer-right">
+
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="return to top"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+  </div>
+</body>
+</html>
