@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/14/grup/index.html">
 <meta property="og:site_name" content="SHARE">
 <meta property="og:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
-<meta property="og:updated_time" content="2016-08-14T07:23:50.426Z">
+<meta property="og:updated_time" content="2016-08-14T07:27:58.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp">
 <meta name="twitter:description" content="流程：安装nodejs -&amp;gt; 全局安装gulp -&amp;gt; 项目安装gulp以及gulp插件 -&amp;gt; 配置gulpfile.js -&amp;gt; 运行任务">
@@ -253,20 +253,22 @@
  2，npm install
  </pre>
  就可以将gulp的插件安装在本地
+<br>
 
 3，配置gulpfile.js(由于我的gulpfile.js已经配置好了，所以可以直接放在项目中，然后直接按第4步运行)
 
+<br>
 4, 运行任务
 
 根据你定义的gulp.task("test",function(){})
 
 用gulp test运行，一般默认是defalut;就可以用gulp直接运行
-
+<br>
 end。
 
-
-
-
+<br>
+<br>
+<br>
 附页说明(想了解可看)
 
 在项目根目录下创建一个名为 gulpfile.js 的文件：
@@ -309,11 +311,17 @@ return gulp.src('test.html')
         .pipe(gulp.dest('www/test'+ new Date().getTime()))
 });
 </pre>
+<br>
+<br>
+一些常用的gulp插件
 
-<p>一些常用的gulp插件</p>
-<p>gulp的插件数量虽然没有grunt那么多，但也可以说是应有尽有了，下面列举一些常用的插件。</p>
-<p>1， 自动加载插件<br>使用gulp-load-plugins<br>安装：npm install –save-dev gulp-load-plugins</p>
-<p>要使用gulp的插件，首先得用require来把插件加载进来，如果我们要使用的插件非常多，那我们的gulpfile.js文件开头可能就会是这个样子的：</p>
+gulp的插件数量虽然没有grunt那么多，但也可以说是应有尽有了，下面列举一些常用的插件。
+
+1， 自动加载插件
+使用:gulp-load-plugins
+安装：npm install --save-dev gulp-load-plugins
+
+要使用gulp的插件，首先得用require来把插件加载进来，如果我们要使用的插件非常多，那我们的gulpfile.js文件开头可能就会是这个样子的：
 <pre>
 var gulp = require('gulp');
 
